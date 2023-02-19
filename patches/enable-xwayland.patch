@@ -1,0 +1,16 @@
+diff --git a/config.mk b/config.mk
+index f50156f..5637280 100644
+--- a/config.mk
++++ b/config.mk
+@@ -7,8 +7,6 @@ PKG_CONFIG = pkg-config
+ PREFIX = /usr/local
+ MANDIR = $(PREFIX)/share/man
+ 
+-XWAYLAND =
+-XLIBS =
+-# Uncomment to build XWayland support
+-#XWAYLAND = -DXWAYLAND
+-#XLIBS = xcb xcb-icccm
++# Xwayland compatibility
++XWAYLAND = -DXWAYLAND
++XLIBS = xcb xcb-icccm
