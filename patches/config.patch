@@ -1,5 +1,5 @@
 diff --git a/config.def.h b/config.def.h
-index 419e6ef..f8676ed 100644
+index a4f7c13..c636f71 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -12,19 +12,14 @@ static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0};
@@ -24,6 +24,15 @@ index 419e6ef..f8676ed 100644
  };
  
  /* monitors */
+@@ -92,7 +87,7 @@ LIBINPUT_CONFIG_TAP_MAP_LMR -- 1/2/3 finger tap maps to left/middle/right
+ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TAP_MAP_LRM;
+ 
+ /* If you want to use the windows key for MODKEY, use WLR_MODIFIER_LOGO */
+-#define MODKEY WLR_MODIFIER_ALT
++#define MODKEY WLR_MODIFIER_LOGO
+ 
+ #define TAGKEYS(KEY,SKEY,TAG) \
+ 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
 @@ -104,45 +99,50 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
@@ -84,10 +93,10 @@ index 419e6ef..f8676ed 100644
 +	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          spawn,            {.v = keymap_cmd} },
 +	{ MODKEY,                    XKB_KEY_Down,       focusstack,       {.i = +1} },
 +	{ MODKEY,                    XKB_KEY_Up,         focusstack,       {.i = -1} },
-+	{ MODKEY,                    XKB_KEY_Right,      incnmaster,       {.i = +1} },
-+	{ MODKEY,                    XKB_KEY_Left,       incnmaster,       {.i = -1} },
-+	{ MODKEY,                    XKB_KEY_h,          setmfact,         {.f = -0.05} },
-+	{ MODKEY,                    XKB_KEY_l,          setmfact,         {.f = +0.05} },
++	{ MODKEY,                    XKB_KEY_Left,       setmfact,         {.f = -0.05} },
++	{ MODKEY,                    XKB_KEY_Right,      setmfact,         {.f = +0.05} },
++	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Left,      incnmaster,       {.i = +1} },
++	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Right,       incnmaster,       {.i = -1} },
 +	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          killclient,       {0} },
 +	{ MODKEY,                    XKB_KEY_space,      setlayout,        {0} },
 +	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating,   {0} },
