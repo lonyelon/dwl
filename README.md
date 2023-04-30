@@ -12,8 +12,6 @@ In this repo I will only post patches and keep DWL as a submodule, which should 
 
 ## Building
 
-DWL can be built with the following command:
+DWL can be built with `make`. A debug argument can be passed so that the MOD key is changed to ALT with `make debug`.
 
-```sh
-make
-```
+If you wish to install DWL and it's MAN page to your system run `make install` as root. Run `make remove` to delete it.
